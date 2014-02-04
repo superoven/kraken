@@ -42,4 +42,10 @@
 //     "views": "path:./.build/templates"
 // }
 
+
+   "cloudinary": {
+         "cloud_name": "hackathon-thing",
+	 "api_key": "455515943769424",
+	 "api_secret":  "mFh0cnI4VQtS4UhPvJkpWRyneJc"
+    }
 }
