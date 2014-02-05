@@ -9,6 +9,9 @@
 <div id="wrapper">
     {+body /}
 </div>
+<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script src="http://localhost:9000/socket.io/socket.io.js"></script>
+<script src="js/client.js"></script>
 <script data-main="js/app" src="components/requirejs/require.js"></script>
 </body>
 </html>

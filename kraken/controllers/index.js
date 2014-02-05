@@ -1,18 +1,20 @@
 'use strict';
 
 var IndexModel = require('../models/index');
-var youtube = require('youtube-api');
 
 module.exports = function (app) {
     var model = new IndexModel();
-    var cloudinary = require('cloudinary'),
-    nconf = require('nconf'),
-    cloudinary_config = nconf.get('cloudinary');
-    cloudinary.config(cloudinary_config);
+
+    var server = app.listen(9000);
+    var io = require('socket.io').listen(server);
+
     app.get('/', function (req, res) {
-	cloudinary.uploader.upload("http://cloudinary.com/images/npm_logo.png", function(result) { 
-		console.log(result);
-	    });
-	res.render('index', model);
-    });
+	    res.render('index', model);
+	});
+
+    io.sockets.on('connection', function (socket) {
+	    socket.on('mousemove', function (data) {
+		    socket.broadcast.emit('moving', data);
+		});
+	});
 };
