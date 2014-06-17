@@ -94,4 +94,4 @@ $(function() {
 	    ctx.stroke();
 	}
 
-    });
+});
